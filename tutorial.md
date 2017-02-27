@@ -1,6 +1,6 @@
 # Tutorial
 
-### Step 1: Empty app with webpack
+### Step 1: Empty app with Webpack
 #### Goal
 Set up an empty frontend app with Webpack.
 
@@ -128,4 +128,40 @@ import Players from './components/Players'
   },
 
 ```
-
+### Step 3: Webapp and CSS (topcoat)
+* install loaders
+```
+npm i style-loader --save-dev
+npm i css-loader --save-dev
+```
+* download topcoat and copy/paste in `./src/assets/css|img|font`
+* update `webpack.config.js` with this module rules:
+```
+  module: {
+    rules: [
+      ...
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: 'file-loader'
+      },
+      {
+        test: /\.(eot|otf|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=assets/fonts/[name].[ext]'
+      },
+      {
+        test: /\.(svg)$/,
+        loader: 'file-loader?name=assets/img/[name].[ext]'
+      }
+    ]
+  }
+```
+* include css in `app.js`:
+```
+import './assets/css/topcoat-mobile-light.css'
+import './assets/css/kt.css'
+```
+### Step 3 bis: Webapp and CSS ([material-desing-lite](https://github.com/google/material-design-lite))
