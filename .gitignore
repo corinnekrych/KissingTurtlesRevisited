@@ -1,6 +1,9 @@
 # Webpack output
 build/
 
+# IDE
+.idea/
+
 # Logs
 logs
 *.log
