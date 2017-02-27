@@ -7,7 +7,8 @@ body {
 /* =====================================================================================================================
 * Turtle canvas
 ===================================================================================================================== */
-canvas {
+.game {}
+.game__canvas {
     display: block;
     margin: 0 9.5rem;
     max-height: 42.5em;
@@ -17,15 +18,15 @@ canvas {
     top: 0px;
 }
 
-#canvasGrid {
+.game__canvas--last-position {
     z-index: 1;
 }
 
-#canvasWalls {
+.game__canvas__middle--position {
     z-index: 2;
 }
 
-#canvasTurtles {
+.game__canvas__first--position {
     z-index: 3;
 }
 

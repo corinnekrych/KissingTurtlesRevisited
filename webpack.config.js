@@ -26,16 +26,30 @@ module.exports = {
           }
         },
         exclude: /node_modules/
-      }]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: 'file-loader'
+      },
+      {
+        test: /\.(eot|otf|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=assets/fonts/[name].[ext]'
+      },
+      {
+        test: /\.(svg)$/,
+        loader: 'file-loader?name=assets/img/[name].[ext]'
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Kissing Turtles!',
       template: './index.html',
       inject: true
-    }),
-    new webpack.ProvidePlugin({
-      React: 'react'
     })
   ],
   devtool: 'inline-source-map'
