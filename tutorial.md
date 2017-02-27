@@ -74,7 +74,7 @@ npm run start
 * In webpack.config.js, add `devtool: 'inline-source-map'` to have source map for debug.
 * with webpack-merge plugin, make several version of webpack config: prod, dev.
 
-### Step 2: ReactJS
+### Step 2: ReactJS and Webpack
 * run command to install reactJS:
 ```
 npm i react --save
@@ -102,6 +102,12 @@ class Players extends React.Component {
   }
 }
 ReactDom.render(<Players/>, document.getElementById('content'));
+```
+* update `app.js` to include dependant jsx:
+```
+import React from 'react';
+import ReactDom from 'react-dom';
+import Players from './components/Players'
 ```
 * update `webpack.config.js` to add `module` key to transpile `jsx`:
 ```
