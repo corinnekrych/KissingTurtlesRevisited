@@ -1,0 +1,29 @@
+{
+  "name": "kissing-turtles-revisited",
+  "version": "0.0.1",
+  "description": "HTML5 Game. When starting a new game, little Franklin is lost in the maze, help him find his true love. ",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf build && webpack --config webpack.config.js",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corinnekrych/KissingTurtlesRevisited.git"
+  },
+  "keywords": [
+    "Game.",
+    "ReactJS"
+  ],
+  "author": "Corinne Krych",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/corinnekrych/KissingTurtlesRevisited/issues"
+  },
+  "homepage": "https://github.com/corinnekrych/KissingTurtlesRevisited#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  }
+}
