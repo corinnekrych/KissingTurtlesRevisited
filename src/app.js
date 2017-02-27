@@ -1,4 +1,2 @@
-//var app = require('./players');
-//console.log(app.greet("Corinne"));
-import {greet} from './players';
-console.log(greet("Corinne"));
+import React from 'react';
+import ReactDom from 'react-dom';

@@ -50,3 +50,53 @@ npm run start
 #### Explore deeper
 * In webpack.config.js, add `devtool: 'inline-source-map'` to have source map for debug.
 * with webpack-merge plugin, make several version of webpack config: prod, dev.
+
+### Step 2: ReactJS
+* run command to install reactJS:
+```
+npm i react --save
+npm i react-dom --save
+```
+* run command to install babel:
+we need a transpiler for interpreting our ES6 code. This is where Babel comes in.
+```
+npm install babel-loader --save-dev
+npm install babel-core --save-dev
+npm install babel-preset-es2015 --save-dev
+npm install babel-preset-react --save-dev
+```
+* rename `players.js`` to `players.jsx``:
+```
+import React from 'react';
+import ReactDom from 'react-dom';
+
+const players = [{name: "Corinne"}, {name: "Emil"}]
+class Players extends React.Component {
+  render() {
+    return <div>
+      <h3>Hello {players[0].name}</h3>
+    </div>
+  }
+}
+ReactDom.render(<Players/>, document.getElementById('content'));
+```
+* update `webpack.config.js` to add `module` key to transpile `jsx`:
+```
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015', 'react'],
+
+          }
+        },
+        exclude: /node_modules/
+      }
+    ]
+  },
+
+```
+

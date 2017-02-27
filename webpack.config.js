@@ -2,14 +2,31 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: ['./src/app.js','./src/players.js'],
+  entry: ['./src/app.js'],
   output: {
     path: __dirname + '/build',
-    filename: "bundle.js"
+    filename: "[name].[hash].js"
   },
   module: {
-    loaders: [
-      { test: /\.css$/, loader: "style!css" }
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['react']
+          }
+        },
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: 'file-loader'
+      }
     ]
   },
   plugins: [
