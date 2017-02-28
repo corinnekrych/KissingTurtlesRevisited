@@ -164,4 +164,34 @@ npm i css-loader --save-dev
 import './assets/css/topcoat-mobile-light.css'
 import './assets/css/kt.css'
 ```
-### Step 3 bis: Webapp and CSS ([material-desing-lite](https://github.com/google/material-design-lite))
+### Step 3 bis: Webpack and CSS ([material-component-web](https://github.com/material-components/material-components-web))
+* install []()
+```
+npm install --save react-ink
+npm install --save @material/button
+```
+* in `players.jsx` add `button`:
+```
+import React from 'react';
+import ReactDom from 'react-dom';
+import '@material/button/dist/mdc.button.css';
+import '../assets/css/kt.css'
+var Ink = require('react-ink');
+
+const players = [{name: "Corinne"}, {name: "Emil"}];
+
+class Players extends React.Component {
+  render() {
+    return <div>
+      <h3>Hello {players[0].name}</h3>
+
+      <button className="mdc-button mdc-button--raised mdc-button--primary">
+        <Ink />
+        new game
+      </button>
+
+    </div>
+  }
+}
+ReactDom.render(<Players/>, document.getElementById('content'));
+```

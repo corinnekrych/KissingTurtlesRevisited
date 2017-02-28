@@ -34,15 +34,9 @@ module.exports = {
       {
         test: /\.(png|jpg|gif)$/,
         use: 'file-loader'
-      },
-      {
-        test: /\.(eot|otf|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=assets/fonts/[name].[ext]'
-      },
-      {
-        test: /\.(svg)$/,
-        loader: 'file-loader?name=assets/img/[name].[ext]'
       }
+
+
     ]
   },
   plugins: [
